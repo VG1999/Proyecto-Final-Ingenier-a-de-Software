@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BANCOSModelStoreContainer" CdmEntityContainer="BANCOSEntities">
+    <EntitySetMapping Name="banco">
+      <EntityTypeMapping TypeName="BANCOSModel.banco">
+        <MappingFragment StoreEntitySet="banco">
+          <ScalarProperty Name="pk_id_banco" ColumnName="pk_id_banco" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cheque">
+      <EntityTypeMapping TypeName="BANCOSModel.cheque">
+        <MappingFragment StoreEntitySet="cheque">
+          <ScalarProperty Name="pk_id_cheque" ColumnName="pk_id_cheque" />
+          <ScalarProperty Name="fk_id_cuenta_bancaria" ColumnName="fk_id_cuenta_bancaria" />
+          <ScalarProperty Name="correlativo" ColumnName="correlativo" />
+          <ScalarProperty Name="n_cuenta" ColumnName="n_cuenta" />
+          <ScalarProperty Name="monto" ColumnName="monto" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="destinatario" ColumnName="destinatario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="correo_usuario">
+      <EntityTypeMapping TypeName="BANCOSModel.correo_usuario">
+        <MappingFragment StoreEntitySet="correo_usuario">
+          <ScalarProperty Name="pk_id_correo" ColumnName="pk_id_correo" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cuenta_bancaria">
+      <EntityTypeMapping TypeName="BANCOSModel.cuenta_bancaria">
+        <MappingFragment StoreEntitySet="cuenta_bancaria">
+          <ScalarProperty Name="pk_id_cuenta_bancaria" ColumnName="pk_id_cuenta_bancaria" />
+          <ScalarProperty Name="fk_id_banco" ColumnName="fk_id_banco" />
+          <ScalarProperty Name="fk_id_usuario" ColumnName="fk_id_usuario" />
+          <ScalarProperty Name="fk_id_tipo_moneda" ColumnName="fk_id_tipo_moneda" />
+          <ScalarProperty Name="fk_id_tipo_cuenta" ColumnName="fk_id_tipo_cuenta" />
+          <ScalarProperty Name="no_cuenta" ColumnName="no_cuenta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pago_prestamo">
+      <EntityTypeMapping TypeName="BANCOSModel.pago_prestamo">
+        <MappingFragment StoreEntitySet="pago_prestamo">
+          <ScalarProperty Name="pk_id_pago_prestamo" ColumnName="pk_id_pago_prestamo" />
+          <ScalarProperty Name="fk_id_cuenta_bancaria" ColumnName="fk_id_cuenta_bancaria" />
+          <ScalarProperty Name="identificador" ColumnName="identificador" />
+          <ScalarProperty Name="n_documento" ColumnName="n_documento" />
+          <ScalarProperty Name="n_autorizacion" ColumnName="n_autorizacion" />
+          <ScalarProperty Name="fecha_realizo" ColumnName="fecha_realizo" />
+          <ScalarProperty Name="cuenta_debitada" ColumnName="cuenta_debitada" />
+          <ScalarProperty Name="total_pagar" ColumnName="total_pagar" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pago_servicio">
+      <EntityTypeMapping TypeName="BANCOSModel.pago_servicio">
+        <MappingFragment StoreEntitySet="pago_servicio">
+          <ScalarProperty Name="pk_id_pago_servicio" ColumnName="pk_id_pago_servicio" />
+          <ScalarProperty Name="fk_id_tipo_servicio" ColumnName="fk_id_tipo_servicio" />
+          <ScalarProperty Name="fk_id_cuenta_bancaria" ColumnName="fk_id_cuenta_bancaria" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="no_documento" ColumnName="no_documento" />
+          <ScalarProperty Name="no_autorizacion" ColumnName="no_autorizacion" />
+          <ScalarProperty Name="fecha_realizo" ColumnName="fecha_realizo" />
+          <ScalarProperty Name="cuenta_debitada" ColumnName="cuenta_debitada" />
+          <ScalarProperty Name="total_pagar" ColumnName="total_pagar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pago_tarjeta">
+      <EntityTypeMapping TypeName="BANCOSModel.pago_tarjeta">
+        <MappingFragment StoreEntitySet="pago_tarjeta">
+          <ScalarProperty Name="pk_id_pago_tarjeta" ColumnName="pk_id_pago_tarjeta" />
+          <ScalarProperty Name="fk_id_tarjeta" ColumnName="fk_id_tarjeta" />
+          <ScalarProperty Name="fk_id_cuenta_bancaria" ColumnName="fk_id_cuenta_bancaria" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="n_documento" ColumnName="n_documento" />
+          <ScalarProperty Name="n_autorizacion" ColumnName="n_autorizacion" />
+          <ScalarProperty Name="fecha_realizo" ColumnName="fecha_realizo" />
+          <ScalarProperty Name="cuenta_debitada" ColumnName="cuenta_debitada" />
+          <ScalarProperty Name="total_pagar" ColumnName="total_pagar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="saldos">
+      <EntityTypeMapping TypeName="BANCOSModel.saldos">
+        <MappingFragment StoreEntitySet="saldos">
+          <ScalarProperty Name="pk_id_saldo" ColumnName="pk_id_saldo" />
+          <ScalarProperty Name="fk_id_cuenta_bancaria" ColumnName="fk_id_cuenta_bancaria" />
+          <ScalarProperty Name="saldo_disponible" ColumnName="saldo_disponible" />
+          <ScalarProperty Name="saldo_flotante" ColumnName="saldo_flotante" />
+          <ScalarProperty Name="salto_total" ColumnName="salto_total" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="BANCOSModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tarjeta">
+      <EntityTypeMapping TypeName="BANCOSModel.tarjeta">
+        <MappingFragment StoreEntitySet="tarjeta">
+          <ScalarProperty Name="pk_id_tarjeta" ColumnName="pk_id_tarjeta" />
+          <ScalarProperty Name="fk_id_tipo_tarjeta" ColumnName="fk_id_tipo_tarjeta" />
+          <ScalarProperty Name="serie" ColumnName="serie" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="fecha_vencimiento" ColumnName="fecha_vencimiento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="telefono_usuario">
+      <EntityTypeMapping TypeName="BANCOSModel.telefono_usuario">
+        <MappingFragment StoreEntitySet="telefono_usuario">
+          <ScalarProperty Name="pk_id_telefono" ColumnName="pk_id_telefono" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipo_cuenta">
+      <EntityTypeMapping TypeName="BANCOSModel.tipo_cuenta">
+        <MappingFragment StoreEntitySet="tipo_cuenta">
+          <ScalarProperty Name="pk_id_tipo_cuenta" ColumnName="pk_id_tipo_cuenta" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipo_modena">
+      <EntityTypeMapping TypeName="BANCOSModel.tipo_modena">
+        <MappingFragment StoreEntitySet="tipo_modena">
+          <ScalarProperty Name="pk_id_tipo_moneda" ColumnName="pk_id_tipo_moneda" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipo_servicio">
+      <EntityTypeMapping TypeName="BANCOSModel.tipo_servicio">
+        <MappingFragment StoreEntitySet="tipo_servicio">
+          <ScalarProperty Name="pk_id_tipo_servicio" ColumnName="pk_id_tipo_servicio" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipo_tarjeta">
+      <EntityTypeMapping TypeName="BANCOSModel.tipo_tarjeta">
+        <MappingFragment StoreEntitySet="tipo_tarjeta">
+          <ScalarProperty Name="pk_id_tipo_tarjeta" ColumnName="pk_id_tipo_tarjeta" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipo_transferencia">
+      <EntityTypeMapping TypeName="BANCOSModel.tipo_transferencia">
+        <MappingFragment StoreEntitySet="tipo_transferencia">
+          <ScalarProperty Name="pk_id_tipo_trasnferencia" ColumnName="pk_id_tipo_trasnferencia" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="transferencia">
+      <EntityTypeMapping TypeName="BANCOSModel.transferencia">
+        <MappingFragment StoreEntitySet="transferencia">
+          <ScalarProperty Name="pk_id_transferencia" ColumnName="pk_id_transferencia" />
+          <ScalarProperty Name="fk_id_cuenta_bancaria" ColumnName="fk_id_cuenta_bancaria" />
+          <ScalarProperty Name="fk_id_tipo_transferencia" ColumnName="fk_id_tipo_transferencia" />
+          <ScalarProperty Name="cuenta_debitada" ColumnName="cuenta_debitada" />
+          <ScalarProperty Name="cuenta_acreditada" ColumnName="cuenta_acreditada" />
+          <ScalarProperty Name="cantidad_trasferida" ColumnName="cantidad_trasferida" />
+          <ScalarProperty Name="fecha_realizo" ColumnName="fecha_realizo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuario">
+      <EntityTypeMapping TypeName="BANCOSModel.usuario">
+        <MappingFragment StoreEntitySet="usuario">
+          <ScalarProperty Name="pk_id_usuario" ColumnName="pk_id_usuario" />
+          <ScalarProperty Name="fk_id_telefono" ColumnName="fk_id_telefono" />
+          <ScalarProperty Name="fk_id_correo" ColumnName="fk_id_correo" />
+          <ScalarProperty Name="usuario1" ColumnName="usuario" />
+          <ScalarProperty Name="contrasenia" ColumnName="contrasenia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
