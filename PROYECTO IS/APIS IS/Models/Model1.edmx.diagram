@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e6795478dede4d10ba83a583bc402371" Name="Diagram1">
+        <EntityTypeShape EntityType="pruebaModel.banco" Width="1.5" PointX="0.75" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="pruebaModel.cheque" Width="1.5" PointX="5.25" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="pruebaModel.cuenta_bancaria" Width="1.5" PointX="3" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="pruebaModel.pago_prestamo" Width="1.5" PointX="5.25" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="pruebaModel.pago_servicio" Width="1.5" PointX="8.25" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="pruebaModel.pago_tarjeta" Width="1.5" PointX="5.25" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="pruebaModel.registro" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="pruebaModel.saldos" Width="1.5" PointX="5.25" PointY="22.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="pruebaModel.sysdiagrams" Width="1.5" PointX="13.125" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="pruebaModel.tarjeta" Width="1.5" PointX="3" PointY="20.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="pruebaModel.tipo_cuenta" Width="1.5" PointX="0.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="pruebaModel.tipo_modena" Width="1.5" PointX="0.75" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="pruebaModel.tipo_servicio" Width="1.5" PointX="6" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="pruebaModel.tipo_tarjeta" Width="1.5" PointX="0.75" PointY="20.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="pruebaModel.tipo_transferencia" Width="1.5" PointX="6" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="pruebaModel.transferencia" Width="1.5" PointX="8.25" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="pruebaModel.usuario" Width="1.5" PointX="0.75" PointY="16.75" IsExpanded="true" />
+        <AssociationConnector Association="pruebaModel.fk_id_banco_cuentabancaria" ManuallyRouted="false" />
+        <AssociationConnector Association="pruebaModel.fk_cheque_cuenta_bancaria" ManuallyRouted="false" />
+        <AssociationConnector Association="pruebaModel.fk_id_tipo_cuenta_cuentabancaria" ManuallyRouted="false" />
+        <AssociationConnector Association="pruebaModel.fk_id_tipo_moneda_cuentabancaria" ManuallyRouted="false" />
+        <AssociationConnector Association="pruebaModel.fk_pagos_tarjeta_cuentabancaria" ManuallyRouted="false" />
+        <AssociationConnector Association="pruebaModel.fk_prestamo_cuenta_bancaria" ManuallyRouted="false" />
+        <AssociationConnector Association="pruebaModel.fk_saldos_cuenta_bancaria" ManuallyRouted="false" />
+        <AssociationConnector Association="pruebaModel.fk_tipo_cuenta_bancaria" ManuallyRouted="false" />
+        <AssociationConnector Association="pruebaModel.fk_transferencia_cuenta_banc" ManuallyRouted="false" />
+        <AssociationConnector Association="pruebaModel.fk_usuario_cuentabancaria" ManuallyRouted="false" />
+        <AssociationConnector Association="pruebaModel.fk_tipo_servicio" ManuallyRouted="false" />
+        <AssociationConnector Association="pruebaModel.fk_pagos_tarjeta" ManuallyRouted="false" />
+        <AssociationConnector Association="pruebaModel.fk_tipo_tarjeta" ManuallyRouted="false" />
+        <AssociationConnector Association="pruebaModel.fk_transferencia_tipo" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

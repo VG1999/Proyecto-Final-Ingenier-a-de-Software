@@ -1,0 +1,455 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProyectoApisModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="banco">
+    <Key>
+      <PropertyRef Name="pk_id_banco" />
+    </Key>
+    <Property Name="pk_id_banco" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="direccion" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="cheque">
+    <Key>
+      <PropertyRef Name="pk_id_cheque" />
+    </Key>
+    <Property Name="pk_id_cheque" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fk_id_cuenta_bancaria" Type="int" Nullable="false" />
+    <Property Name="correlativo" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="n_cuenta" Type="int" Nullable="false" />
+    <Property Name="monto" Type="float" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="fecha" Type="datetime" Nullable="false" />
+    <Property Name="destinatario" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="correo_usuario">
+    <Key>
+      <PropertyRef Name="pk_id_correo" />
+    </Key>
+    <Property Name="pk_id_correo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="correo" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="cuenta_bancaria">
+    <Key>
+      <PropertyRef Name="pk_id_cuenta_bancaria" />
+    </Key>
+    <Property Name="pk_id_cuenta_bancaria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fk_id_banco" Type="int" Nullable="false" />
+    <Property Name="fk_id_usuario" Type="int" Nullable="false" />
+    <Property Name="fk_id_tipo_moneda" Type="int" Nullable="false" />
+    <Property Name="fk_id_tipo_cuenta" Type="int" Nullable="false" />
+    <Property Name="no_cuenta" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="pago_prestamo">
+    <Key>
+      <PropertyRef Name="pk_id_pago_prestamo" />
+    </Key>
+    <Property Name="pk_id_pago_prestamo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fk_id_cuenta_bancaria" Type="int" Nullable="false" />
+    <Property Name="identificador" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="n_documento" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="n_autorizacion" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="fecha_realizo" Type="datetime" Nullable="false" />
+    <Property Name="cuenta_debitada" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="total_pagar" Type="float" Nullable="false" />
+    <Property Name="cantidad" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="pago_servicio">
+    <Key>
+      <PropertyRef Name="pk_id_pago_servicio" />
+    </Key>
+    <Property Name="pk_id_pago_servicio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fk_id_tipo_servicio" Type="int" Nullable="false" />
+    <Property Name="fk_id_cuenta_bancaria" Type="int" Nullable="false" />
+    <Property Name="cantidad" Type="float" Nullable="false" />
+    <Property Name="no_documento" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="no_autorizacion" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="fecha_realizo" Type="datetime" Nullable="false" />
+    <Property Name="cuenta_debitada" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="total_pagar" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="pago_tarjeta">
+    <Key>
+      <PropertyRef Name="pk_id_pago_tarjeta" />
+    </Key>
+    <Property Name="pk_id_pago_tarjeta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fk_id_tarjeta" Type="int" Nullable="false" />
+    <Property Name="fk_id_cuenta_bancaria" Type="int" Nullable="false" />
+    <Property Name="cantidad" Type="float" Nullable="false" />
+    <Property Name="n_documento" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="n_autorizacion" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="fecha_realizo" Type="datetime" Nullable="false" />
+    <Property Name="cuenta_debitada" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="total_pagar" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="saldos">
+    <Key>
+      <PropertyRef Name="pk_id_saldo" />
+    </Key>
+    <Property Name="pk_id_saldo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fk_id_cuenta_bancaria" Type="int" Nullable="false" />
+    <Property Name="saldo_disponible" Type="float" Nullable="false" />
+    <Property Name="saldo_flotante" Type="float" Nullable="false" />
+    <Property Name="salto_total" Type="float" Nullable="false" />
+    <Property Name="fecha" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="tarjeta">
+    <Key>
+      <PropertyRef Name="pk_id_tarjeta" />
+    </Key>
+    <Property Name="pk_id_tarjeta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fk_id_tipo_tarjeta" Type="int" Nullable="false" />
+    <Property Name="serie" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="codigo" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="fecha_vencimiento" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="telefono_usuario">
+    <Key>
+      <PropertyRef Name="pk_id_telefono" />
+    </Key>
+    <Property Name="pk_id_telefono" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="telefono" Type="varchar" MaxLength="15" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tipo_cuenta">
+    <Key>
+      <PropertyRef Name="pk_id_tipo_cuenta" />
+    </Key>
+    <Property Name="pk_id_tipo_cuenta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tipo_modena">
+    <Key>
+      <PropertyRef Name="pk_id_tipo_moneda" />
+    </Key>
+    <Property Name="pk_id_tipo_moneda" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tipo_servicio">
+    <Key>
+      <PropertyRef Name="pk_id_tipo_servicio" />
+    </Key>
+    <Property Name="pk_id_tipo_servicio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tipo_tarjeta">
+    <Key>
+      <PropertyRef Name="pk_id_tipo_tarjeta" />
+    </Key>
+    <Property Name="pk_id_tipo_tarjeta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tipo_transferencia">
+    <Key>
+      <PropertyRef Name="pk_id_tipo_trasnferencia" />
+    </Key>
+    <Property Name="pk_id_tipo_trasnferencia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="40" Nullable="false" />
+  </EntityType>
+  <EntityType Name="transferencia">
+    <Key>
+      <PropertyRef Name="pk_id_transferencia" />
+    </Key>
+    <Property Name="pk_id_transferencia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fk_id_cuenta_bancaria" Type="int" Nullable="false" />
+    <Property Name="fk_id_tipo_transferencia" Type="int" Nullable="false" />
+    <Property Name="cuenta_debitada" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="cuenta_acreditada" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="cantidad_trasferida" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="fecha_realizo" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="usuario">
+    <Key>
+      <PropertyRef Name="pk_id_usuario" />
+    </Key>
+    <Property Name="pk_id_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fk_id_telefono" Type="int" Nullable="false" />
+    <Property Name="fk_id_correo" Type="int" Nullable="false" />
+    <Property Name="usuario" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="contrasenia" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <Association Name="fk_cheque_cuenta_bancaria">
+    <End Role="cuenta_bancaria" Type="Self.cuenta_bancaria" Multiplicity="1" />
+    <End Role="cheque" Type="Self.cheque" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cuenta_bancaria">
+        <PropertyRef Name="pk_id_cuenta_bancaria" />
+      </Principal>
+      <Dependent Role="cheque">
+        <PropertyRef Name="fk_id_cuenta_bancaria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_correo_usuario">
+    <End Role="correo_usuario" Type="Self.correo_usuario" Multiplicity="1" />
+    <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="correo_usuario">
+        <PropertyRef Name="pk_id_correo" />
+      </Principal>
+      <Dependent Role="usuario">
+        <PropertyRef Name="fk_id_correo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_id_banco_cuentabancaria">
+    <End Role="banco" Type="Self.banco" Multiplicity="1" />
+    <End Role="cuenta_bancaria" Type="Self.cuenta_bancaria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="banco">
+        <PropertyRef Name="pk_id_banco" />
+      </Principal>
+      <Dependent Role="cuenta_bancaria">
+        <PropertyRef Name="fk_id_banco" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_id_tipo_cuenta_cuentabancaria">
+    <End Role="tipo_cuenta" Type="Self.tipo_cuenta" Multiplicity="1" />
+    <End Role="cuenta_bancaria" Type="Self.cuenta_bancaria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipo_cuenta">
+        <PropertyRef Name="pk_id_tipo_cuenta" />
+      </Principal>
+      <Dependent Role="cuenta_bancaria">
+        <PropertyRef Name="fk_id_tipo_cuenta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_id_tipo_moneda_cuentabancaria">
+    <End Role="tipo_modena" Type="Self.tipo_modena" Multiplicity="1" />
+    <End Role="cuenta_bancaria" Type="Self.cuenta_bancaria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipo_modena">
+        <PropertyRef Name="pk_id_tipo_moneda" />
+      </Principal>
+      <Dependent Role="cuenta_bancaria">
+        <PropertyRef Name="fk_id_tipo_moneda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_id_usuario_cuentabancaria">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+    <End Role="cuenta_bancaria" Type="Self.cuenta_bancaria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="pk_id_usuario" />
+      </Principal>
+      <Dependent Role="cuenta_bancaria">
+        <PropertyRef Name="fk_id_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_pagos_tarjeta">
+    <End Role="tarjeta" Type="Self.tarjeta" Multiplicity="1" />
+    <End Role="pago_tarjeta" Type="Self.pago_tarjeta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tarjeta">
+        <PropertyRef Name="pk_id_tarjeta" />
+      </Principal>
+      <Dependent Role="pago_tarjeta">
+        <PropertyRef Name="fk_id_tarjeta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_pagos_tarjeta_cuentabancaria">
+    <End Role="cuenta_bancaria" Type="Self.cuenta_bancaria" Multiplicity="1" />
+    <End Role="pago_tarjeta" Type="Self.pago_tarjeta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cuenta_bancaria">
+        <PropertyRef Name="pk_id_cuenta_bancaria" />
+      </Principal>
+      <Dependent Role="pago_tarjeta">
+        <PropertyRef Name="fk_id_cuenta_bancaria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_prestamo_cuenta_bancaria">
+    <End Role="cuenta_bancaria" Type="Self.cuenta_bancaria" Multiplicity="1" />
+    <End Role="pago_prestamo" Type="Self.pago_prestamo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cuenta_bancaria">
+        <PropertyRef Name="pk_id_cuenta_bancaria" />
+      </Principal>
+      <Dependent Role="pago_prestamo">
+        <PropertyRef Name="fk_id_cuenta_bancaria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_saldos_cuenta_bancaria">
+    <End Role="cuenta_bancaria" Type="Self.cuenta_bancaria" Multiplicity="1" />
+    <End Role="saldos" Type="Self.saldos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cuenta_bancaria">
+        <PropertyRef Name="pk_id_cuenta_bancaria" />
+      </Principal>
+      <Dependent Role="saldos">
+        <PropertyRef Name="fk_id_cuenta_bancaria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_telefono_usuario">
+    <End Role="telefono_usuario" Type="Self.telefono_usuario" Multiplicity="1" />
+    <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="telefono_usuario">
+        <PropertyRef Name="pk_id_telefono" />
+      </Principal>
+      <Dependent Role="usuario">
+        <PropertyRef Name="fk_id_telefono" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_tipo_cuenta_bancaria">
+    <End Role="cuenta_bancaria" Type="Self.cuenta_bancaria" Multiplicity="1" />
+    <End Role="pago_servicio" Type="Self.pago_servicio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cuenta_bancaria">
+        <PropertyRef Name="pk_id_cuenta_bancaria" />
+      </Principal>
+      <Dependent Role="pago_servicio">
+        <PropertyRef Name="fk_id_cuenta_bancaria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_tipo_servicio">
+    <End Role="tipo_servicio" Type="Self.tipo_servicio" Multiplicity="1" />
+    <End Role="pago_servicio" Type="Self.pago_servicio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipo_servicio">
+        <PropertyRef Name="pk_id_tipo_servicio" />
+      </Principal>
+      <Dependent Role="pago_servicio">
+        <PropertyRef Name="fk_id_tipo_servicio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_tipo_tarjeta">
+    <End Role="tipo_tarjeta" Type="Self.tipo_tarjeta" Multiplicity="1" />
+    <End Role="tarjeta" Type="Self.tarjeta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipo_tarjeta">
+        <PropertyRef Name="pk_id_tipo_tarjeta" />
+      </Principal>
+      <Dependent Role="tarjeta">
+        <PropertyRef Name="fk_id_tipo_tarjeta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_transferencia_cuenta_banc">
+    <End Role="cuenta_bancaria" Type="Self.cuenta_bancaria" Multiplicity="1" />
+    <End Role="transferencia" Type="Self.transferencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cuenta_bancaria">
+        <PropertyRef Name="pk_id_cuenta_bancaria" />
+      </Principal>
+      <Dependent Role="transferencia">
+        <PropertyRef Name="fk_id_cuenta_bancaria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_transferencia_tipo">
+    <End Role="tipo_transferencia" Type="Self.tipo_transferencia" Multiplicity="1" />
+    <End Role="transferencia" Type="Self.transferencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipo_transferencia">
+        <PropertyRef Name="pk_id_tipo_trasnferencia" />
+      </Principal>
+      <Dependent Role="transferencia">
+        <PropertyRef Name="fk_id_tipo_transferencia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ProyectoApisModelStoreContainer">
+    <EntitySet Name="banco" EntityType="Self.banco" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cheque" EntityType="Self.cheque" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="correo_usuario" EntityType="Self.correo_usuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cuenta_bancaria" EntityType="Self.cuenta_bancaria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="pago_prestamo" EntityType="Self.pago_prestamo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="pago_servicio" EntityType="Self.pago_servicio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="pago_tarjeta" EntityType="Self.pago_tarjeta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="saldos" EntityType="Self.saldos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tarjeta" EntityType="Self.tarjeta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="telefono_usuario" EntityType="Self.telefono_usuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tipo_cuenta" EntityType="Self.tipo_cuenta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tipo_modena" EntityType="Self.tipo_modena" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tipo_servicio" EntityType="Self.tipo_servicio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tipo_tarjeta" EntityType="Self.tipo_tarjeta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tipo_transferencia" EntityType="Self.tipo_transferencia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="transferencia" EntityType="Self.transferencia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="usuario" EntityType="Self.usuario" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="fk_cheque_cuenta_bancaria" Association="Self.fk_cheque_cuenta_bancaria">
+      <End Role="cuenta_bancaria" EntitySet="cuenta_bancaria" />
+      <End Role="cheque" EntitySet="cheque" />
+    </AssociationSet>
+    <AssociationSet Name="fk_correo_usuario" Association="Self.fk_correo_usuario">
+      <End Role="correo_usuario" EntitySet="correo_usuario" />
+      <End Role="usuario" EntitySet="usuario" />
+    </AssociationSet>
+    <AssociationSet Name="fk_id_banco_cuentabancaria" Association="Self.fk_id_banco_cuentabancaria">
+      <End Role="banco" EntitySet="banco" />
+      <End Role="cuenta_bancaria" EntitySet="cuenta_bancaria" />
+    </AssociationSet>
+    <AssociationSet Name="fk_id_tipo_cuenta_cuentabancaria" Association="Self.fk_id_tipo_cuenta_cuentabancaria">
+      <End Role="tipo_cuenta" EntitySet="tipo_cuenta" />
+      <End Role="cuenta_bancaria" EntitySet="cuenta_bancaria" />
+    </AssociationSet>
+    <AssociationSet Name="fk_id_tipo_moneda_cuentabancaria" Association="Self.fk_id_tipo_moneda_cuentabancaria">
+      <End Role="tipo_modena" EntitySet="tipo_modena" />
+      <End Role="cuenta_bancaria" EntitySet="cuenta_bancaria" />
+    </AssociationSet>
+    <AssociationSet Name="fk_id_usuario_cuentabancaria" Association="Self.fk_id_usuario_cuentabancaria">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="cuenta_bancaria" EntitySet="cuenta_bancaria" />
+    </AssociationSet>
+    <AssociationSet Name="fk_pagos_tarjeta" Association="Self.fk_pagos_tarjeta">
+      <End Role="tarjeta" EntitySet="tarjeta" />
+      <End Role="pago_tarjeta" EntitySet="pago_tarjeta" />
+    </AssociationSet>
+    <AssociationSet Name="fk_pagos_tarjeta_cuentabancaria" Association="Self.fk_pagos_tarjeta_cuentabancaria">
+      <End Role="cuenta_bancaria" EntitySet="cuenta_bancaria" />
+      <End Role="pago_tarjeta" EntitySet="pago_tarjeta" />
+    </AssociationSet>
+    <AssociationSet Name="fk_prestamo_cuenta_bancaria" Association="Self.fk_prestamo_cuenta_bancaria">
+      <End Role="cuenta_bancaria" EntitySet="cuenta_bancaria" />
+      <End Role="pago_prestamo" EntitySet="pago_prestamo" />
+    </AssociationSet>
+    <AssociationSet Name="fk_saldos_cuenta_bancaria" Association="Self.fk_saldos_cuenta_bancaria">
+      <End Role="cuenta_bancaria" EntitySet="cuenta_bancaria" />
+      <End Role="saldos" EntitySet="saldos" />
+    </AssociationSet>
+    <AssociationSet Name="fk_telefono_usuario" Association="Self.fk_telefono_usuario">
+      <End Role="telefono_usuario" EntitySet="telefono_usuario" />
+      <End Role="usuario" EntitySet="usuario" />
+    </AssociationSet>
+    <AssociationSet Name="fk_tipo_cuenta_bancaria" Association="Self.fk_tipo_cuenta_bancaria">
+      <End Role="cuenta_bancaria" EntitySet="cuenta_bancaria" />
+      <End Role="pago_servicio" EntitySet="pago_servicio" />
+    </AssociationSet>
+    <AssociationSet Name="fk_tipo_servicio" Association="Self.fk_tipo_servicio">
+      <End Role="tipo_servicio" EntitySet="tipo_servicio" />
+      <End Role="pago_servicio" EntitySet="pago_servicio" />
+    </AssociationSet>
+    <AssociationSet Name="fk_tipo_tarjeta" Association="Self.fk_tipo_tarjeta">
+      <End Role="tipo_tarjeta" EntitySet="tipo_tarjeta" />
+      <End Role="tarjeta" EntitySet="tarjeta" />
+    </AssociationSet>
+    <AssociationSet Name="fk_transferencia_cuenta_banc" Association="Self.fk_transferencia_cuenta_banc">
+      <End Role="cuenta_bancaria" EntitySet="cuenta_bancaria" />
+      <End Role="transferencia" EntitySet="transferencia" />
+    </AssociationSet>
+    <AssociationSet Name="fk_transferencia_tipo" Association="Self.fk_transferencia_tipo">
+      <End Role="tipo_transferencia" EntitySet="tipo_transferencia" />
+      <End Role="transferencia" EntitySet="transferencia" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

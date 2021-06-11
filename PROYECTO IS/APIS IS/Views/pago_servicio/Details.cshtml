@@ -1,0 +1,82 @@
+﻿@model APIS_IS.Models.pago_servicio
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>pago_servicio</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.fk_id_tipo_servicio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fk_id_tipo_servicio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fk_id_cuenta_bancaria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fk_id_cuenta_bancaria)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cantidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cantidad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.no_documento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.no_documento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.no_autorizacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.no_autorizacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_realizo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_realizo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cuenta_debitada)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cuenta_debitada)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.total_pagar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.total_pagar)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.pk_id_pago_servicio }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
