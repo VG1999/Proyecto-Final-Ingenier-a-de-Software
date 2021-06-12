@@ -163,6 +163,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\registroController.cs" />
+    <Compile Include="Controllers\saldoController.cs" />
     <Compile Include="Controllers\servicioController.cs" />
     <Compile Include="Controllers\usuarioController.cs" />
     <Compile Include="Models\banco.cs">
@@ -332,6 +333,11 @@
     <Content Include="Views\servicio\Details.cshtml" />
     <Content Include="Views\servicio\Edit.cshtml" />
     <Content Include="Views\servicio\Index.cshtml" />
+    <Content Include="Views\saldo\Create.cshtml" />
+    <Content Include="Views\saldo\Delete.cshtml" />
+    <Content Include="Views\saldo\Details.cshtml" />
+    <Content Include="Views\saldo\Edit.cshtml" />
+    <Content Include="Views\saldo\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
