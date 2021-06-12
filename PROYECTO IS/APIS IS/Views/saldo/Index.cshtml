@@ -1,0 +1,57 @@
+﻿@model IEnumerable<APIS_IS.Models.saldos>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.fk_id_cuenta_bancaria)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.saldo_disponible)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.saldo_flotante)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.salto_total)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.fk_id_cuenta_bancaria)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.saldo_disponible)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.saldo_flotante)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.salto_total)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.pk_id_saldo }) |
+            @Html.ActionLink("Details", "Details", new { id=item.pk_id_saldo }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.pk_id_saldo })
+        </td>
+    </tr>
+}
+
+</table>
